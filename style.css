@@ -1,62 +1,110 @@
-body {
-    background-color: #050a18;
-    color: #00f2ff;
-    font-family: 'Orbitron', sans-serif;
-    margin: 0;
-    overflow-x: hidden;
+:root {
+    --neon: #00f2ff;
+    --dark: #02060c;
+    --glass: rgba(0, 242, 255, 0.1);
 }
 
-/* Sci-fi Grid Background */
-.grid-overlay {
+body {
+    background-color: var(--dark);
+    color: var(--neon);
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Moving Scanner Line */
+.scanner-line {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
-    background-size: 30px 30px;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: var(--neon);
+    box-shadow: 0 0 15px var(--neon);
+    z-index: 100;
+    animation: scan 4s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes scan {
+    0% { top: -5%; }
+    100% { top: 105%; }
+}
+
+.grid-background {
+    position: fixed;
+    width: 100%; height: 100%;
+    background-image: linear-gradient(var(--glass) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--glass) 1px, transparent 1px);
+    background-size: 50px 50px;
     z-index: -1;
 }
 
-.hero {
-    height: 60vh;
+.dashboard {
+    padding: 20px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+.status-bar {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.8rem;
+    border-bottom: 1px solid var(--neon);
+    padding-bottom: 10px;
+}
+
+.dot {
+    height: 8px; width: 8px;
+    background-color: #0f0;
+    display: inline-block;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.main-display {
+    display: flex;
+    flex: 1;
+    gap: 20px;
     align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
-.glow {
-    text-shadow: 0 0 20px #00f2ff;
-    font-size: 3rem;
-}
-
-.cards {
+.visualizer {
+    flex: 2;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid #00f2ff;
-    padding: 20px;
-    border-radius: 10px;
-    width: 200px;
+.rotating-ring {
+    width: 250px; height: 250px;
+    border: 2px dashed var(--neon);
+    border-radius: 50%;
+    animation: rotate 10s linear infinite;
+    position: absolute;
 }
+
+@keyframes rotate { 100% { transform: rotate(360deg); } }
 
 button {
     background: transparent;
-    color: #00f2ff;
-    border: 2px solid #00f2ff;
-    padding: 15px 30px;
-    font-family: 'Orbitron', sans-serif;
+    color: var(--neon);
+    border: 1px solid var(--neon);
+    padding: 20px 40px;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+    font-family: 'Orbitron';
+    transition: 0.3s;
 }
 
 button:hover {
-    background: #00f2ff;
-    color: #050a18;
+    background: var(--neon);
+    color: var(--dark);
+    box-shadow: 0 0 30px var(--neon);
+}
+
+.data-card {
+    background: var(--glass);
+    border: 1px solid var(--neon);
+    padding: 15px;
+    margin-bottom: 10px;
+    width: 250px;
+    font-family: 'Source Code Pro';
 }
