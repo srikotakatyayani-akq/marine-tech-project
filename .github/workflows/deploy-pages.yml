@@ -3,7 +3,7 @@ name: Deploy Marine AI Site
 on:
   push:
     branches:
-      - main  # Runs every time you save code to main
+      - main
 
 permissions:
   contents: write
@@ -19,4 +19,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # This tells it your files are in the main folder
+          publish_dir: ./
