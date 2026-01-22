@@ -8,21 +8,18 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build site (if needed)
-        run: echo "No build step, site is static"
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          path: '.'
+          node-version: '18'
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
