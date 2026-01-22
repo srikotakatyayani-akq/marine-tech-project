@@ -1,68 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coral AI Explorer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>MARINE AI MONITORING</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>🌊 Coral AI Explorer</h1>
-      <p>Learn, Explore, and Analyze Coral Reefs with AI</p>
-      <button onclick="scrollToSection('learn')">Start Learning</button>
-    </div>
-    <canvas id="heroCanvas"></canvas>
-  </section>
-
-  <!-- Learn Section -->
-  <section id="learn" class="section">
-    <h2>5W1H of Coral Conservation</h2>
-    <div class="cards">
-      <div class="card"><h3>What</h3><p>Coral reefs are diverse underwater ecosystems that support marine life.</p></div>
-      <div class="card"><h3>Why</h3><p>They protect coastlines, support fisheries, and maintain ocean biodiversity.</p></div>
-      <div class="card"><h3>Where</h3><p>Found in tropical and subtropical oceans worldwide.</p></div>
-      <div class="card"><h3>When</h3><p>Coral reefs have existed for millions of years but are now under threat.</p></div>
-      <div class="card"><h3>Who</h3><p>Marine scientists, divers, and citizen scientists contribute to coral protection.</p></div>
-      <div class="card"><h3>How</h3><p>Through conservation efforts, monitoring, and AI analysis of coral health.</p></div>
-    </div>
-  </section>
-
-  <!-- Upload Section -->
-  <section id="upload" class="section upload-section">
-    <h2>Upload Your Coral Image</h2>
-    <p>Get instant AI analysis of coral health (demo)</p>
-    <input type="file" id="coralImage" accept="image/*">
-    <button onclick="analyzeImage()">Analyze Image</button>
-    <div id="analysisResult" class="analysis-result"></div>
-  </section>
-
-  <!-- Dashboard Section -->
-  <section id="dashboard" class="section dashboard-section">
-    <h2>Coral Health Dashboard</h2>
-    <canvas id="dashboardChart"></canvas>
-  </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery" class="section gallery-section">
-    <h2>User Coral Gallery</h2>
-    <div class="gallery-cards">
-      <div class="gallery-card"><img src="https://via.placeholder.com/150" alt="Coral"><p>Healthy Coral</p></div>
-      <div class="gallery-card"><img src="https://via.placeholder.com/150" alt="Coral"><p>Bleached Coral</p></div>
-      <div class="gallery-card"><img src="https://via.placeholder.com/150" alt="Coral"><p>Endangered Coral</p></div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>🌊 Coral AI Explorer | Marine Conservation Project | Made with ❤️</p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="script.js"></script>
+    <div class="grid-overlay"></div>
+    <header class="hero">
+        <h1 class="glow">🌊 SYSTEM ONLINE</h1>
+        <p class="subtitle">AI ANALYSIS: SCANNING CORAL REEFS</p>
+        <button onclick="showAI()">ACTIVATE SCANNER</button>
+    </header>
+    <section class="cards">
+        <div class="card"><h3>🤖 PREDICTION</h3><p>Analyzing microplastics...</p></div>
+        <div class="card"><h3>📊 ANALYTICS</h3><p>95% Accuracy Score</p></div>
+        <div class="card"><h3>🌍 STATUS</h3><p>Ocean Protected</p></div>
+    </section>
+    <script src="script.js"></script>
 </body>
 </html>
