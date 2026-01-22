@@ -1,16 +1,23 @@
-function showAI() {
-    let btn = document.querySelector('button');
-    let sub = document.querySelector('.subtitle');
-    btn.innerHTML = "SCANNING...";
+// Real-time Clock
+setInterval(() => {
+    document.getElementById('clock').innerText = new Date().toLocaleTimeString();
+}, 1000);
+
+function runDiagnostic() {
+    let output = document.getElementById('output');
+    output.innerHTML = "> ACCESSING SATELLITE...<br>";
     
-    let percent = 0;
-    let timer = setInterval(() => {
-        percent += 5;
-        sub.innerHTML = "AI ANALYSIS: " + percent + "% COMPLETE";
-        if (percent >= 100) {
-            clearInterval(timer);
-            sub.innerHTML = "✅ SUCCESS: NO MICROPLASTICS DETECTED";
-            btn.innerHTML = "RESCAN SYSTEM";
-        }
-    }, 100);
+    let messages = [
+        "> CONNECTING TO REEF_NODE_04...",
+        "> ANALYZING BIO-THERMALS...",
+        "> DETECTING ANOMALIES...",
+        "> RESULT: NO PLASTICS FOUND",
+        "> SYSTEM SECURE."
+    ];
+
+    messages.forEach((msg, i) => {
+        setTimeout(() => {
+            output.innerHTML += msg + "<br>";
+        }, i * 1000);
+    });
 }
