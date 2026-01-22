@@ -1,3 +1,3 @@
-function sayHello() {
-    alert("Hello! Welcome to my Marine Conservation Project 🌊");
+function showAI() {
+    alert("🤖 AI SYSTEM ONLINE\n\nAnalyzing ocean data...\nPredicting microplastic levels...");
 }
