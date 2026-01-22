@@ -5,10 +5,13 @@ on:
     branches:
       - main
 
+# ADD THIS SECTION TO FIX PERMISSION ERRORS
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -18,8 +21,11 @@ jobs:
         with:
           node-version: '18'
 
+      # IMPORTANT: If your project needs to be built (e.g., React/Vite), 
+      # you MUST run npm install and npm build here.
+      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: ./ # Or ./dist if you have a build step
