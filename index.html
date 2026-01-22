@@ -2,22 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MARINE AI MONITORING</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>MARINE AI | CORE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="grid-overlay"></div>
-    <header class="hero">
-        <h1 class="glow">🌊 SYSTEM ONLINE</h1>
-        <p class="subtitle">AI ANALYSIS: SCANNING CORAL REEFS</p>
-        <button onclick="showAI()">ACTIVATE SCANNER</button>
-    </header>
-    <section class="cards">
-        <div class="card"><h3>🤖 PREDICTION</h3><p>Analyzing microplastics...</p></div>
-        <div class="card"><h3>📊 ANALYTICS</h3><p>95% Accuracy Score</p></div>
-        <div class="card"><h3>🌍 STATUS</h3><p>Ocean Protected</p></div>
-    </section>
+    <div class="scanner-line"></div>
+    <div class="grid-background"></div>
+
+    <main class="dashboard">
+        <header>
+            <h1 class="glitch" data-text="MARINE AI SYSTEM">MARINE AI SYSTEM</h1>
+            <div class="status-bar">
+                <span class="dot"></span> SYSTEM: ONLINE | <span id="clock">00:00:00</span>
+            </div>
+        </header>
+
+        <section class="main-display">
+            <div class="visualizer">
+                <div class="circle-box">
+                    <div class="rotating-ring"></div>
+                    <button onclick="runDiagnostic()">START DEEP SCAN</button>
+                </div>
+            </div>
+
+            <div class="side-panel">
+                <div class="data-card">
+                    <small>LATITUDE: 24.5505° N</small><br>
+                    <small>LONGITUDE: 81.7800° W</small>
+                </div>
+                <div class="data-card" id="output">
+                    > WAITING FOR COMMAND...
+                </div>
+            </div>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
