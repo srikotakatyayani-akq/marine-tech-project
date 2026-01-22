@@ -1,12 +1,22 @@
+name: Deploy Marine AI Site
+
+on:
+  push:
+    branches:
+      - main  # Runs every time you save code to main
+
 permissions:
   contents: write
-# ... standard headers ...
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build
-      - name: Deploy
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # Ensure this matches your build folder
+          publish_dir: ./  # This tells it your files are in the main folder
