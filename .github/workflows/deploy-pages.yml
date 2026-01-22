@@ -7,14 +7,17 @@ on:
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     permissions:
       pages: write
       id-token: write
-    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Build site (if needed)
+        run: echo "No build step, site is static"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
@@ -22,5 +25,4 @@ jobs:
           path: '.'
 
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
